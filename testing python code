@@ -1,0 +1,14 @@
+import numpy as np
+import pandas as pd
+
+
+dates = pd.date_range('01-01-2000', periods=8)
+df = pd.DataFrame(np.random.randn(8, 4), index=dates, columns=['A', 'B', 'C', 'D'])
+
+
+df["no."] = list(range(len(df.index)))
+df["category"] = ["cat", "monkey", "monkey", "dog", "cat", "dog", "lion", "tiger"]
+df = df.reindex(columns = ["no.", "category", "A", "B", "C", "D"])
+df.dtypes
+
+df
