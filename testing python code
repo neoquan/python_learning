@@ -12,3 +12,45 @@ df = df.reindex(columns = ["no.", "category", "A", "B", "C", "D"])
 df.dtypes
 
 df
+
+df.groupby(['category'])[["A", "B"]].sum()
+
+df["category"].nunique()
+
+df["category"].unique().tolist()
+
+df.groupby(["category"])[["A","B","C"]].agg([np.sum, min])
+
+df.groupby(["category"]).agg(min_number = pd.NamedAgg("A", "min"), 
+                             max_number = pd.NamedAgg("A", "max"), 
+                             total_number = pd.NamedAgg("A", np.sum))
+
+df.query('category == ["dog", "cat"]')   # DÙNG DẤU NHÁY ĐƠN, KO PHẢI NHÁY ĐÔI
+
+df.query('["dog", "zeus", "rambo", "lion"] in category')   # Y CHANG DÒNG TRÊN NHƯNG DÙNG IN
+
+df.query('["lion"] not in category')    # LIST RA CÁC CON ĐỘNG VẬT LOẠI TRỪ "LION"
+
+df[:5]  # lấy từ dòng 1 đến dòng 5  (dòng 1 có index(no.) = 0)
+
+df[::2]  #  từ dòng thứ 1, nhảy 2 bước đến cuối cùng
+
+df[1::2] # từ dòng thứ 2, nhảy 2 bước đến cuối cùng
+
+df[2::3]  # từ dòng thứ 3, nhảy 3 bước đến cuối cùng
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
